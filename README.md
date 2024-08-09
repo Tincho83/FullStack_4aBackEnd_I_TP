@@ -1,41 +1,27 @@
-![image](/src/assets/imagenes/mitiendaonline.png)
-# Mi Tienda Online
-## _Tienda virtual de productos lacteos, infusiones y otros._  
-## _Virtual store of dairy products, infusions and others._
-  
+![image](/src/public/img/demo.png)
+# BackEnd I - PreEntregable TP1
+## _Servidor con endpoints y servicios para gestionar los productos y carritos de compra de un e-commerce._  
   
 ### Vista previa / Preview
-![image](/src/assets/imagenes/app_hd.gif)
+![image](/src/public/img/demo.gif)
 
 ### Depliegue / Deploy
-[Mi Tienda Online](https://tiendavirtual62310.netlify.app/)
+[BackEnd I PreEntrega TP1](https://tiendavirtual62310x.netlify.app/)
 
 ### Descripcion / Description
-Sitio e-commerce realizado en React para el curso de React JS en CoderHouse.  
-E-commerce site made in React for the React JS course at CoderHouse.
+Aplicativo Backend para e-commerce realizado en javascript, express para el curso de Backend I en CoderHouse.  
+
 
 ### Construccion / Building
--  React
--  Firebase
+-  Javascript
+-  node
+
+# Install nodejs and verify version
+   - node --version
+   - npm --version
 
 ### Dependecias / Dependencies
--  chakra-ui/icons
--  chakra-ui/react
--  emotion/react
--  emotion/styled
--  framer-motion
--  firebase    
--  leaflet
--  react
--  react-dom
--  react-icons
--  react-leaflet
--  react-router-dom
--  react-spinners
--  react-toastify
--  sweetalert2
--  use-local-storage
-
+-  express
 
 ## Instalacion / Installation
 ### Pasos / Steps
@@ -44,58 +30,48 @@ E-commerce site made in React for the React JS course at CoderHouse.
    -  **git clone git@github.com:Tincho83/FullStack_3ReactJS_TP3C.git**  
    o  
    -  **git clone https://github.com/Tincho83/FullStack_3ReactJS_TP3C.git**
+
 - Acceder a la carpeta del proyecto / Access to project folder
    - **cd FullStack_3ReactJS_TP3C**
+
 - Instalar dependecias / Install dependencies
-   - **npm install @chakra-ui/icons**
-   - **npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion**
-   - **npm install firebase**
-   - **npm install leaflet react-leaflet**
-   - **npm install react-icons --save**
-   - **npm install react-router-dom**
-   - **npm install react-spinners**
-   - **npm install --save react-toastify**
-   - **npm install sweetalert2**
-   - **npm install use-local-storage**
+   - **npm install**
+   o instalar dependencias individualmente
+   - **npm install @express**
+
+- Instalar otras herramientas / Install others tools
+   - **npm install -g nodemon** (instala nodemon de manera global. Esta herramiente reinicia el servidor cuando detecta cambios en el codigo.)
+   
 - Compilar / Compile
-   - **npm run dev**
+   - **npm run dev** (Para ejecutar en modo desarrollo)
+   - **npm run start** (Para ejecutar en modo produccion)
 
 ### Estructura del proyecto / Project structure
 
-#### Header
-   -  Enlaces varios / Miscellaneous Links
-   -  Menu Hamburguesa para otros accesos / Burger Menu for other accesses
-   -  Logo
-   -  Titulo del ecommerce / Ecommerce title
-   -  Switch para Modo Claro / Light Mode Switch
+#### Carpeta raiz del proyecto
+   -  **src** (Contiene los fuentes del proyecto)
+   -  **.gitignore** (Para uso de git)
+   -  **package.json** (Informacion y configuracion del proyecto)
+   -  **Readme.md** (Este archivo)   
+   -  **node_modules** (No disponible en el repositorio, aparecera cuando instalen las dependencias del proyecto.)
 
-#### NavBar
-   -  Menu categorias / Menu categories
-   -  Icono carrito / Cart icon
+#### Carpeta SRC
+   -  **dao** (Objeto de Acceso a Datos (Data Access Object) contiene los administradores para acceso a datos):
+      - **CartsManager.js** (Administrador de acceso a datos para ABM del carrito.)
+      - **ProductsManager.js**  (Administrador de acceso a datos para ABM de los productos.)
+   -  **data** contiene los archivos para la persistencia de la informacion:
+      -  **carrito.json** (datos de carritos y sus productos)
+      -  **products.json** (datos de los productos)
+   - **js** contiene las aplicaciones
+      - **app.js** (aplicativo principal)
+   - **public** contiene archivos de acceso publico
+      - **css** hoja de estilos
+      - **img** imagenes
+      - **index.html** archivo principal html.
+   - **routes** contiene las rutas para los endpoints
+      - **carts.router.js** rutas para los endpoints del carrito.
+      - **products.router.js** rutas para los endpoints de los productos.
 
-#### Body
-   -  Listado de productos / Product List
-   -  Detalle de producto / Product Detail
-
-#### Footer
-   -  Informacion Contacto y Horario / Contact Information & Hours of Operation
-   -  Ubicacion con Leaflet / Location with Leaflet
-   -  Informacion del Desarrollador / Developer Information
-
-#### Navegacion
-   -  Enrutamiento entre las diferentes vistas de la SPA / Routing between the different SPA views
-
-#### Carrito
-   -  Vista de carrito de compras con acceso a modificar cantidad del producto, eliminar el producto y vaciar el carrito.
-      Shopping cart view with access to modify product quantity, delete the product, and empty the cart.
-   -  Productos almacenados en Local-Storage. / Products stored in Local-Storage
-
-#### Checkout
-   -  Resumen de compra / Purchase Summary
-   -  Formulario de datos de usuario con validacion de errores en los campos para procesar el pedido.
-      User data form with error validation in the fields to process the order.
-   -  Control de Stock al finalizar la venta. / Stock Control at the end of the sale. 
-   -  SweetAlert2 para notificar compra realizada. / SweetAlert2 to notify you of a completed purchase.
 
 ### Contacto
-[![N|Solid](/src/assets/imgs/varios/linkedin.png)](https://www.linkedin.com/in/martin-hernandez-9b7154215)
+[![N|Solid](/src/public/img/linkedin.png)](https://www.linkedin.com/in/martin-hernandez-9b7154215)
