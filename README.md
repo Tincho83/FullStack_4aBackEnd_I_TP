@@ -1,4 +1,4 @@
-![image](/src/public/img/demo.png)
+![image](/src/public/img/demo.PNG)
 # BackEnd I - PreEntregable TP1
 ## _Servidor con endpoints y servicios para gestionar los productos y carritos de compra de un e-commerce._  
   
@@ -6,7 +6,7 @@
 ![image](/src/public/img/demo.gif)
 
 ### Depliegue / Deploy
-[BackEnd I PreEntrega TP1](https://tiendavirtual62310x.netlify.app/)
+[BackEnd I PreEntrega TP1](https://tiendavirtual62310x.netlify.app/) (No disponible por el momento.)
 
 ### Descripcion / Description
 Aplicativo Backend para e-commerce realizado en javascript, express para el curso de Backend I en CoderHouse.  
@@ -27,17 +27,17 @@ Aplicativo Backend para e-commerce realizado en javascript, express para el curs
 ### Pasos / Steps
 - Abrir VS Code / Open Vs Code
 - Clonar repositorio / Clone Repository
-   -  **git clone git@github.com:Tincho83/FullStack_3ReactJS_TP3C.git**  
+   -  **git clone git@github.com:Tincho83/FullStack_4aBackEnd_I_TP.git**  
    o  
-   -  **git clone https://github.com/Tincho83/FullStack_3ReactJS_TP3C.git**
+   -  **git clone https://github.com/Tincho83/FullStack_4aBackEnd_I_TP.git**
 
 - Acceder a la carpeta del proyecto / Access to project folder
-   - **cd FullStack_3ReactJS_TP3C**
+   - **cd FullStack_4aBackEnd_I_TP-main**
 
-- Instalar dependecias / Install dependencies
+- Instalar todas las dependecias del proyecto/ Install dependencies
    - **npm install**
    o instalar dependencias individualmente
-   - **npm install @express**
+   - **npm install express**
 
 - Instalar otras herramientas / Install others tools
    - **npm install -g nodemon** (instala nodemon de manera global. Esta herramiente reinicia el servidor cuando detecta cambios en el codigo.)
@@ -50,8 +50,8 @@ Aplicativo Backend para e-commerce realizado en javascript, express para el curs
 
 #### Carpeta raiz del proyecto
    -  **src** (Contiene los fuentes del proyecto)
-   -  **.gitignore** (Para uso de git)
-   -  **package.json** (Informacion y configuracion del proyecto)
+   -  **.gitignore** (No disponible en el Repositorio. Solo para uso de git. Crear archivo .gitignore y agregar el texto (sin comillas): "node_modules" )
+   -  **package.json** (Informacion y configuracion del proyecto. Se genera cuando se ejecuta el comando "npm init -y")
    -  **Readme.md** (Este archivo)   
    -  **node_modules** (No disponible en el repositorio, aparecera cuando instalen las dependencias del proyecto.)
 
