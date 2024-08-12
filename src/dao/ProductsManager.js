@@ -6,14 +6,8 @@ class ProductsManager {
 
     static async getProducts() {
         if (fs.existsSync(this.path)) {
-            //return JSON.parse(await fs.promises.readFile(this.path, {encoding:"utf-8"}));
             let prods = JSON.parse(await fs.promises.readFile(this.path, { encoding: "utf-8" }));
-            //prods = prods.map( prod => {
-            //    return {
-            //        ...prod,
-            //        name: prod.name.toUpperCase()
-            //    }
-            //})
+
             return prods;
         } else {
             return [];

@@ -356,7 +356,7 @@
           "title": "Queso Tybo",
           "description": "Queso Tybo Amarillo",
           "code": "QUES010",
-          "price": 14600,
+          "price": 14400,
           "status": true,
           "stock": 3,
           "category": "Queso",
@@ -403,7 +403,18 @@
           "price": 7000,
           "status": true,
           "stock": 7,
-          "category": "Te",
+          "category": "Infusion",
+          "thumbnails": []
+     },
+     {
+          "id": 30,
+          "title": "Te Boldo Premium 100g",
+          "description": "Te en saquitos",
+          "code": "TEPR002",
+          "price": 7000,
+          "status": true,
+          "stock": 7,
+          "category": "Infusion",
           "thumbnails": []
      }
 ]

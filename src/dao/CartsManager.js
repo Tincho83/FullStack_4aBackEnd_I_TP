@@ -34,15 +34,12 @@ class CartsManager {
 
     }
 
-//    static async addProductToCart(prods = {}) {
     static async addProductToCart(cid, pid) {
 
         let carts = await this.getCarts();
         let cart = carts.find(cart => cart.id === cid);
 
         if (!cart) {
-            //cart = { id: cid, products: [] };
-            //carts.push(cart);
             throw new Error("Carrito no encontrado");
         }
 
@@ -54,49 +51,8 @@ class CartsManager {
             cart.products.push({ product: pid, quantity: 1 });
         }
 
-        //await this.saveCarts(carts);
         await fs.promises.writeFile(this.path, JSON.stringify(carts, null, 5));
         return cart;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-        let cartss = await this.getCarts();
-
-        let id = 1;
-
-        let cartx = this.carts.find(cart => cart.id === id);
-
-        console.log("Carrito", cart);
-        //
-
-        if (carts.length > 0) {
-            id = Math.max(...carts.map(idp => idp.id)) + 1;
-        }
-
-        let nuevoCart = { id, ...prods };
-        carts.push(nuevoCart);
-
-        await fs.promises.writeFile(this.path, JSON.stringify(carts, null, 5));
-
-        return nuevoCart;
-
-        */
 
     }
 
