@@ -28,7 +28,7 @@ class CartsManager {
         let nuevoCart = { id, ...prods };
         carts.push(nuevoCart);
 
-        await fs.promises.writeFile(this.path, JSON.stringify(carts, null, 5));
+        await fs.promises.writeFile(this.path, JSON.stringify(carts, null, 5), {encoding: "utf-8"});
 
         return nuevoCart;
 
@@ -44,14 +44,13 @@ class CartsManager {
         }
 
         let product = cart.products.find(prod => prod.product === pid);
-
         if (product) {
             product.quantity += 1;
         } else {
             cart.products.push({ product: pid, quantity: 1 });
         }
 
-        await fs.promises.writeFile(this.path, JSON.stringify(carts, null, 5));
+        await fs.promises.writeFile(this.path, JSON.stringify(carts, null, 5), {encoding: "utf-8"});
         return cart;
 
     }
@@ -70,7 +69,7 @@ class CartsManager {
             id
         }
 
-        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5));
+        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5), {encoding: "utf-8"});
 
         return prods[indiceProd];
 
@@ -88,7 +87,7 @@ class CartsManager {
         prods = prods.filter(prod => prod.id !== id);
         let postcant = prods.length;
 
-        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5));
+        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5), {encoding: "utf-8"});
 
         return precant - postcant;
     }

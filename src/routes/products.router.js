@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
         console.log(error);
         res.setHeader('Content-type', 'application/json');
         return res.status(500).json({
-            error: `Error inesperado en el servidor, vuelva a intentar mas tarde.`,
+            error: `Error inesperado en el servidor, vuelva a intentar mas tarde o contacte con el administrador.`,
             detalle: `${error.message}`
         });
     }
@@ -110,8 +110,7 @@ router.post("/", async (req, res) => {
     let existe = prods.find(prod => prod.code.toLowerCase() === code.toLowerCase());
 
     if (existe) {
-        console.log("Producto Existente: ", existe);
-        console.log("**********************************************************\r\n");
+        console.log("Producto Existente: ", existe);        
         res.setHeader('Content-type', 'application/json');
         return res.status(400).json({ error: `Ya existe un producto con codigo ${code}` });
     } else {
@@ -217,7 +216,6 @@ router.delete("/:pid", async (req, res) => {
 
     try {
         let prodresult = await ProductsManager.deleteProduct(pid);
-        console.log("**********************************************************\r\n");
         if (prodresult > 0) {
             res.setHeader('Content-type', 'application/json');
             return res.status(200).json({ payload: `Producto Id ${pid} eliminado.` });
@@ -233,7 +231,6 @@ router.delete("/:pid", async (req, res) => {
             error: `Error inesperado en el servidor, vuelva a intentar mas tarde.`,
             detalle: `${error.message}`
         });
-
     }
 
 });

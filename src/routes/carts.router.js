@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const CartsManager = require("../dao/CartsManager.js");
+const ProductsManager = require("../dao/ProductsManager.js");
 
 const router = Router();
 
@@ -88,8 +89,7 @@ router.get("/:cid", async (req, res) => {
     }
 
     // "cart.products" para solo los productos del carrito proporcionado, si se desea ver todos los atributos usar "cart"
-    console.log("Producto: ", cart.products);
-    console.log("**********************************************************\r\n");
+    console.log("Productos del carrito '" + cid +"'", cart.products);
 
     res.setHeader('Content-type', 'application/json');
     return res.status(200).json({ payload: cart.products });
@@ -106,6 +106,25 @@ router.post("/:cid/product/:pid", async (req, res) => {
     const cid = parseInt(req.params.cid);
     const pid = parseInt(req.params.pid);
 
+    if (isNaN(cid) || isNaN(pid)) {
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(400).json({ error: `Los ids deben ser numericos.` })
+    }
+
+    carts = await CartsManager.getCarts();
+    let cart = carts.find(c => c.id === cid)
+    if (!cart) {
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(400).json({ error: `Carrito inexistente ${cid}` })
+    }
+
+    let prodss = await ProductsManager.getProducts();
+    let existe = prodss.find(c => c.id === pid)
+    if (!existe) {
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(400).json({ error: `Producto ${pid} inexistente...!!!` })
+    }
+
     try {
         await CartsManager.addProductToCart(cid, pid);
         res.setHeader('Content-type', 'application/json');
@@ -114,7 +133,7 @@ router.post("/:cid/product/:pid", async (req, res) => {
         res.setHeader('Content-type', 'application/json');
         res.status(500).send('Error al agregar el producto al carrito');
     }
-   
+
 });
 
 

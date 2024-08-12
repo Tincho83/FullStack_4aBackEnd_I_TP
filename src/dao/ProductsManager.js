@@ -26,7 +26,7 @@ class ProductsManager {
         let nuevoProd = { id, ...prod };
         prods.push(nuevoProd);
 
-        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5));
+        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5), {encoding: "utf-8"});
 
         return nuevoProd;
 
@@ -46,7 +46,7 @@ class ProductsManager {
             id
         }
 
-        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5));
+        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5), {encoding: "utf-8"});
 
         return prods[indiceProd];
 
@@ -64,7 +64,7 @@ class ProductsManager {
         prods = prods.filter(prod => prod.id !== id);
         let postcant = prods.length;
 
-        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5));
+        await fs.promises.writeFile(this.path, JSON.stringify(prods, null, 5), {encoding: "utf-8"});
 
         return precant - postcant;
     }
