@@ -122,51 +122,5 @@ router.post("/:cid/product/:pid", async (req, res) => {
 
 });
 
-
-// Listar todos los carritos de la base y su contenido. Incluye uso de limit y skip (con sus validaciones).
-// Ejemplo sin limit y skip: (App: Posman Metodo: GET tipo: JSON): http://localhost:8080/api/carts
-// Ejemplo con limit y skip: (App: Posman Metodo: GET tipo: JSON): http://localhost:8080/api/carts?limit=2&skip=2
-router.get("/", async (req, res) => {
-    let carts;
-
-    try {
-        carts = await CartsManager.getCarts();
-    } catch (error) {
-        console.log(error);
-        res.setHeader('Content-type', 'application/json');
-        return res.status(500).json({
-            error: `Error inesperado en el servidor, vuelva a intentar mas tarde.`,
-            detalle: `${error.message}`
-        });
-    }
-
-    let { limit, skip } = req.query;
-
-    if (limit) {
-        limit = Number(limit);
-        if (isNaN(limit)) {
-            res.setHeader('Content-type', 'application/json');
-            return res.status(400).json({ error: `El argumento limit debe ser numerico.` });
-        }
-    } else {
-        limit = carts.length;
-    }
-
-    if (skip) {
-        skip = Number(skip);
-        if (isNaN(skip)) {
-            res.setHeader('Content-type', 'application/json');
-            return res.status(400).json({ error: `El argumento skip debe ser numerico.` });
-        }
-    } else {
-        skip = 0;
-    }
-
-    let resultado = carts.slice(skip, skip + limit);
-
-    res.setHeader('Content-type', 'application/json');
-    return res.status(200).json({ resultado });
-});
-
 module.exports = { router };
 
